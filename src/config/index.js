@@ -77,11 +77,9 @@ const config = () => {
       return { ...base, ...GrupoSupervielle };
     case "1505":
       return { ...base, ...Priar };
-      case "1505":
-      return { ...base, ...Priar };
-      case "5848":
+    case "5848":
       return { ...base, ...FundacionDeLio };
-      case "5948":
+    case "5948":
         return { ...base, ...AfricaDream };
     default:
       return base;

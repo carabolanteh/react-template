@@ -6,6 +6,7 @@ import { actions as modalAction } from '../../../../store/ducks/modal.duck';
 import { actions as userActivitiesAction } from '../../../../store/ducks/user/activities.duck';
 import Loading from '../../../molecules/Loading';
 import Table from '../../../molecules/Table';
+import config from '../../../../config';
 
 const Activities = () => {
   const dispatch = useDispatch();
@@ -55,7 +56,8 @@ const Activities = () => {
   };
 
   const columns = useMemo(
-    () => [
+    () => {
+      const array = [
       {
         name: 'Acciones',
         cell: (row) => (
@@ -117,18 +119,6 @@ const Activities = () => {
         center: true,
       },
       {
-        name: 'Horas acumuladas',
-        selector: 'hours_individual',
-        sortable: true,
-        center: true,
-      },
-      {
-        name: 'Horas acumuladas en grupo',
-        selector: 'hours_total',
-        sortable: true,
-        center: true,
-      },
-      {
         name: 'Organizacion de origen',
         selector: 'entity_from',
         sortable: true,
@@ -140,7 +130,26 @@ const Activities = () => {
         sortable: true,
         center: true,
       },
-    ],
+    ]
+    if(config.activities_hours_table){
+      array.push(...[  {
+        name: 'Horas acumuladas',
+        selector: 'hours_individual',
+        sortable: true,
+        center: true,
+      },
+      {
+        name: 'Horas acumuladas en grupo',
+        selector: 'hours_total',
+        sortable: true,
+        center: true,
+      },])
+    }
+
+    return array;
+  },
+
+
     [hoursModal, iconStyle],
   );
 
