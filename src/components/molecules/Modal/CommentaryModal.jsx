@@ -3,11 +3,14 @@ import './modal.scss';
 import StepOne from './commentaryModal/StepOne';
 import StepTwo from './commentaryModal/StepTwo';
 
-const CommentaryModal = ({ closeModal, url, activity_id }) => {
-  const [commentary, setCommentary] = useState('');
+const CommentaryModal = ({ closeModal, url, activity_id ,survey}) => {
+  const [commentary, setCommentary] = useState("");
+  const [formsSend, setFormsSend] = useState([]);
 
   const [step, setStep] = useState(0);
-
+  const setAnswers = (name) => (value)=>{
+    setFormsSend({ ...formsSend, [name]: value });
+  }
   return (
     <div className="modal-content">
       <div className="modal-header">
@@ -27,6 +30,9 @@ const CommentaryModal = ({ closeModal, url, activity_id }) => {
           setCommentary={setCommentary}
           closeModal={closeModal}
           setStep={setStep}
+          survey={survey}
+          setAnswers={setAnswers}
+          formsSend={formsSend}
         />
       ) : (
         <StepTwo
@@ -35,6 +41,7 @@ const CommentaryModal = ({ closeModal, url, activity_id }) => {
           url={url}
           activity_id={activity_id}
           closeModal={closeModal}
+          formsSend={formsSend}
         />
       )}
     </div>

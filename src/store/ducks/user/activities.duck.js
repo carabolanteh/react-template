@@ -45,7 +45,7 @@ export function* getActivitiesState({ userId }) {
   try {
     const results = yield call(
       apiCall,
-      `user/${userId}/activities`,
+      `user/${userId}/activities/?include=survey.fields.options`,
       null,
       'GET',
     );

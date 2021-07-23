@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { apiCall } from "../../../../crud/api.crud";
 import { actions as userActivitiesAction } from "../../../../store/ducks/user/activities.duck";
 
-const StepTwo = ({ commentary, setStep, activity_id, closeModal, url }) => {
+const StepTwo = ({ commentary, setStep, activity_id, closeModal, url ,formsSend}) => {
   const dispatch = useDispatch();
 
   const { user_id } = useSelector((state) => ({
@@ -25,6 +25,7 @@ const StepTwo = ({ commentary, setStep, activity_id, closeModal, url }) => {
       activity_id,
       user_id,
       commentary,
+      formsSend
     };
     setIsLoading(true);
     setIsResponse(await apiCall(url, payload, "POST"));
