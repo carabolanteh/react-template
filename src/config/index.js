@@ -19,6 +19,8 @@ import ArgentinaNarrada from "./492";
 import MadreEmprededora from "./3766";
 import MovimientoNuevaGeneracion from "./5878";
 import Priar from "./1505/1505";
+import FundacionDeLio from "./5848/5848";
+import AfricaDream from "./5948/5948";
 
 import GrupoSupervielle from "./5933/5933";
 import GrupoMexico from "./2621/2621";
@@ -75,6 +77,10 @@ const config = () => {
       return { ...base, ...GrupoSupervielle };
     case "1505":
       return { ...base, ...Priar };
+    case "5848":
+      return { ...base, ...FundacionDeLio };
+    case "5948":
+        return { ...base, ...AfricaDream };
     default:
       return base;
   }

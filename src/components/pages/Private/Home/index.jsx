@@ -74,7 +74,8 @@ const CardsContainer = () => {
         filter={filter}
       />
       <div className="container mt-4">
-        <div className="card-deck">
+        {config.map_top &&
+          <div className="card-deck">
           {config.banner ? (
             <div className="card">
               <img src={config.banner} alt="banner" />
@@ -90,6 +91,7 @@ const CardsContainer = () => {
             </>
           )}
         </div>
+        }
         <Filter setIsOpen={setIsOpen} setPage={setPage} meta={activities.meta}></Filter>
         <div className="card__container">
           {activitiesColumns.map((activitiesColumn,index) => (
@@ -106,6 +108,24 @@ const CardsContainer = () => {
             </div>
           ))}
         </div>
+        {config.map_bottom &&
+          <div className="card-deck mb-4">
+          {config.banner ? (
+            <div className="card">
+              <img src={config.banner} alt="banner" />
+            </div>
+          ) : (
+            <>
+              <Card
+                description={<Map activities={activities} />}
+                title="Actividades de voluntariado"
+                style={{ flexGrow: 200 }}
+              />
+              <VolunteerExperiences />
+            </>
+          )}
+        </div>
+        }
       </div>
     </>
   );

@@ -51,8 +51,6 @@ const Navbar = ({ name }) => {
   };
 
 
-  console.log(isOpenNotification);
-
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white ">
       <div className="container">
@@ -67,11 +65,13 @@ const Navbar = ({ name }) => {
               Actividades
             </NavLink>
           </li>
+          {config.has_hours &&
           <li className="px-3">
             <NavLink activeClassName="selected" to="/horas">
               Horas
             </NavLink>
           </li>
+          }
         </ul>
         <Link to="/" className="navbar-brand">
           <Img
