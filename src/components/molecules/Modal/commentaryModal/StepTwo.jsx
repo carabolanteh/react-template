@@ -18,7 +18,7 @@ const StepTwo = ({ commentary, setStep, activity_id, closeModal, url }) => {
       dispatch(userActivitiesAction.getActivities(user_id));
       closeModal();
     }
-  }, [response]);
+  }, [response,closeModal,dispatch,user_id]);
 
   const save = async () => {
     const payload = {

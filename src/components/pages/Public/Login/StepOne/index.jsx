@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { apiCall } from "../../../../../crud/api.crud";
@@ -8,6 +8,13 @@ const schema = Yup.string().email().required();
 const StepOne = ({ next, email, setEmail }) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const inputRef = useRef();
+
+
+  useEffect(()=>{
+    inputRef.current.focus();
+  })
+
 
   const handleOnKeyDown = (e) => {
     if (e.keyCode === 13) {
@@ -32,7 +39,7 @@ const StepOne = ({ next, email, setEmail }) => {
       setError(true);
       return;
     }
-    next(2);
+    next(1);
   };
 
   return (
@@ -48,6 +55,7 @@ const StepOne = ({ next, email, setEmail }) => {
           onKeyDown={handleOnKeyDown}
           value={email}
           name="email"
+          ref={inputRef}
         />
         {error && <span className="span span--error">Revisa tu correo</span>}
       </div>

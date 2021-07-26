@@ -3,17 +3,16 @@ import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 
 const Login = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [email, setEmail] = useState('');
 
-  switch (step) {
-    case 1:
-      return (
-        <StepOne next={setStep} email={email} setEmail={setEmail} />
-      );
-    case 2:
-      return <StepTwo previous={setStep} email={email} />;
-  }
+  const stepComponent = [
+  <StepOne next={setStep} email={email} setEmail={setEmail} />,
+  <StepTwo previous={setStep} email={email} />
+  ];
+
+  return stepComponent[step];
+
 };
 
 export default Login;

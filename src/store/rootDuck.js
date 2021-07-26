@@ -5,7 +5,6 @@ import * as auth from './ducks/auth.duck';
 import * as activities from './ducks/activities.duck';
 import * as modal from './ducks/modal.duck';
 import * as userActivities from './ducks/user/activities.duck';
-import * as activity from './ducks/activity/getActivity.duck';
 import * as loadHours from './ducks/hours/loadHours.duck';
 import * as userActivitiesHours from './ducks/user/activitiesHours.duck';
 import * as security from './ducks/security/index.duck';
@@ -17,7 +16,6 @@ export const rootReducer = (history) => combineReducers({
   activities: activities.reducer,
   modal: modal.reducer,
   userActivities: userActivities.reducer,
-  activity: activity.reducer,
   loadHours: loadHours.reducer,
   userActivitiesHours: userActivitiesHours.reducer,
   security: security.reducer,
@@ -29,7 +27,6 @@ export function* rootSaga() {
     auth.saga(),
     activities.saga(),
     userActivities.saga(),
-    activity.saga(),
     loadHours.saga(),
     userActivitiesHours.saga(),
     security.saga(),

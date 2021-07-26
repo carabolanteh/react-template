@@ -7,7 +7,7 @@ import Map from "../../../molecules/Map";
 
 import VolunteerExperiences from "../../../molecules/VolunteerExperiences";
 import "./cardContainer.scss";
-import { useBreackpoint } from "../../../../utils/hooks/useBreackpoint";
+import { useBreackpoint } from "../../../../hooks/useBreackpoint";
 import ActivitiesCard from "../../../molecules/ActivitiesCard";
 import { apiCall } from "../../../../crud/api.crud";
 import { invercionMatriz } from "../../../../utils/helper";

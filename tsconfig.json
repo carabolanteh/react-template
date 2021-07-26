@@ -1,15 +1,9 @@
 {
   "include": [
-    "./src/"
+    "./src/",
+    "**/*.ts",
+    "**/*.tsx"
   ],
-  "paths": {
-    // name_of_alias: [real_path_of_directory]
-    "@components/*": ["./src/components/*"],
-    "@config/*": ["./src/config/*"],
-    "@crud/*": ["./src/crud/*"],
-    "@hooks/*": ["./src/hooks/*"],
-    "@utils/*": ["./src/utils/*"], 
-  },
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
@@ -29,6 +23,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "noImplicitAny": false,
-  }
+    "noImplicitAny": false
+  },
+  "extends": "./paths.json"
 }

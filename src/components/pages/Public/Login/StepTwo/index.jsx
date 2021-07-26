@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
@@ -12,15 +12,19 @@ const StepTwo = ({ previous, email }) => {
   const [password, setPassword] = useState("");
   const [loadingLocal, setLoading] = useState(false);
   const [errorLocal, setError] = useState(false);
-  const { loading, error } = useSelector(state => ({
+  const { error } = useSelector(state => ({
     loading: state.auth.loading,
     error: state.auth.error
   }));
+  const inputRef = useRef();
 
   useEffect(()=>{
     setError(error)
   },[error]);
 
+  useEffect(()=>{
+    inputRef.current.focus();
+  })
 
 
 
@@ -50,7 +54,7 @@ const StepTwo = ({ previous, email }) => {
   };
 
   const setPreviousStep = () => {
-    previous(1);
+    previous(0);
   };
 
   const changeShowPass = () => {
@@ -68,6 +72,7 @@ const StepTwo = ({ previous, email }) => {
           onKeyDown={handleOnKeyDown}
           value={password}
           name="password"
+          ref={inputRef}
         />
         {showPass ? (
           <FaEyeSlash

@@ -20,7 +20,7 @@ const useCheckUser = (user) => {
         },
       }));
     }
-  }, []);
+  }, [dispatch,user]);
 };
 
 export default useCheckUser;

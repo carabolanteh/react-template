@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route } from 'react-router-dom';
 import Navbar from '../organisms/Navbar';
-import Home from '../pages/Private/Home';
+import Home from '../pages/Private/Home/index.jsx';
 import Activities from '../pages/Private/Activities';
 import Hours from '../pages/Private/Hours';
 import ModalRoot from '../molecules/Modal/ModalRoot';

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 /*
 import Hours from './Hours';
 import TextArea from './TextArea';
@@ -33,7 +33,7 @@ const Form = ({ closeModal }) => {
     if (!userActivities) {
       dispatch(userActivitiesAction.getActivities(user_id));
     }
-  }, [user_id, userActivities]);
+  }, [user_id, userActivities,dispatch]);
 
   const save = async (values) => {
     await apiCall('activityHours', values, 'POST');

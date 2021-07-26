@@ -7,7 +7,7 @@ const Management = ({ user }) => {
 
   useEffect(() => {
     apiCall(`management/${user.id}`, null, 'GET').then((response) => setData(response.data.data));
-  }, []);
+  }, [user.id]);
 
   return (
     <div className="container mt-4">

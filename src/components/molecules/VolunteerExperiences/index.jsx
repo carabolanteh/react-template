@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import "./VolunteerExperiences.scss";
 import { apiCall } from "../../../crud/api.crud";
 import Card from "../Card";
