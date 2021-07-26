@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Form from '../applyModal/Forms';
 
-const StepOne = ({ commentary, setCommentary, closeModal, setStep }) => {
+const StepOne = ({ commentary, setCommentary, closeModal, setStep ,survey,setAnswers,formsSend}) => {
   const [count, setCount] = useState(180);
 
   const onChange = (e) => {
@@ -27,6 +28,7 @@ const StepOne = ({ commentary, setCommentary, closeModal, setStep }) => {
             value={commentary}
             onChange={onChange}
           />
+           {survey && survey.fields.map(form=><Form key={`commentary${form.id}`} form={form} setAnswers={setAnswers} />)}
         </div>
       </div>
       <div className="modal-footer">

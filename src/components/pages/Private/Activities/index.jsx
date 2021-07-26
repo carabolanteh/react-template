@@ -24,13 +24,14 @@ const Activities = () => {
     );
   };
 
-  const commentaryModal = (activity_id) => {
+  const commentaryModal = (activity_id,survey) => {
     dispatch(
       modalAction.modalShow({
         modalProps: {
           open: true,
           activity_id,
           url: 'activity/addCommentary',
+          survey
         },
         modalType: 'commentary',
       }),
@@ -80,7 +81,7 @@ const Activities = () => {
                     type="button"
                     className="btn btn-primary btn-sm"
                     onClick={() => {
-                      commentaryModal(row.id);
+                      commentaryModal(row.id,row.survey);
                     }}
                   >
                     <MdComment style={iconStyle} />
@@ -192,8 +193,8 @@ const Activities = () => {
       commentary: a.commentary,
       entity_to: a.fromEntity.bussiness_name,
       entity_from: a.toEntity.bussiness_name,
+      survey: a.survey
     }));
-
     return (
       <div className="container mt-4">
         <div className="card shadow  bg-white rounded">
